@@ -1,23 +1,3 @@
-project1.py
-A
-Type
-Text
-Size
-4 KB (3,975 bytes)
-Storage used
-4 KB (3,975 bytes)
-Location
-MLproject
-Owner
-me
-Modified
-Sep 26, 2018 by me
-Opened
-1:24 AM by me
-Created
-Sep 26, 2018 with Google Drive Web
-Add a description
-Viewers can download
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
@@ -102,57 +82,57 @@ for train_index, test_index in kf1.split(feature):
     # print "Accuracy is ",acc
 
 
-# df1 = pd.DataFrame(cvAccuracy)
-#
-# df1.columns = ['10-fold cv Accuracy']
-# df = df1.reindex(range(1, 101))
-# df.plot()
-# plt.title("Decision Tree - 10-fold Cross Validation Accuracy vs Depth of tree")
-# plt.xlabel("Depth of tree")
-# plt.ylabel("Accuracy")
-# plt.ylim([0.8, 1])
-# plt.xlim([0, 100])
-# plt.show()
+df1 = pd.DataFrame(cvAccuracy)
 
-#
-#
-# false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, y_pred)
-# roc_auc = auc(false_positive_rate, true_positive_rate)
-# #print roc_auc
-#
-#
-#
-# plt.figure(figsize=(10,10))
-# plt.title('Receiver Operating Characteristic')
-# plt.plot(false_positive_rate,true_positive_rate, color='red',label = 'AUC = %0.2f' % roc_auc)
-# plt.legend(loc = 'lower right')
-# plt.plot([0, 1], [0, 1],linestyle='--')
-# plt.axis('tight')
-# plt.ylabel('True Positive Rate')
-# plt.xlabel('False Positive Rate')
-# plt.show()
-#
+df1.columns = ['10-fold cv Accuracy']
+df = df1.reindex(range(1, 101))
+df.plot()
+plt.title("Decision Tree - 10-fold Cross Validation Accuracy vs Depth of tree")
+plt.xlabel("Depth of tree")
+plt.ylabel("Accuracy")
+plt.ylim([0.8, 1])
+plt.xlim([0, 100])
+plt.show()
 
 
 
+false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, y_pred)
+roc_auc = auc(false_positive_rate, true_positive_rate)
+#print roc_auc
 
-# clf_GNB = GaussianNB()
-# clf_GNB = clf_GNB.fit(x_train, y_train)
-# label_pred_GNB=clf_GNB.predict(x_test)
-# auc_GNB=classification_report(y_test, label_pred_GNB)
-# print auc_GNB
-#
-# print (y_test!= label_pred_GNB).sum()
-# false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, label_pred_GNB)
-# roc_auc = auc(false_positive_rate, true_positive_rate)
-# print roc_auc
 
-# plt.figure(figsize=(10,10))
-# plt.title('Receiver Operating Characteristic')
-# plt.plot(false_positive_rate,true_positive_rate, color='red',label = 'AUC = %0.2f' % roc_auc)
-# plt.legend(loc = 'lower right')
-# plt.plot([0, 1], [0, 1],linestyle='--')
-# plt.axis('tight')
-# plt.ylabel('True Positive Rate')
-# plt.xlabel('False Positive Rate')
-# plt.show()
+
+plt.figure(figsize=(10,10))
+plt.title('Receiver Operating Characteristic')
+plt.plot(false_positive_rate,true_positive_rate, color='red',label = 'AUC = %0.2f' % roc_auc)
+plt.legend(loc = 'lower right')
+plt.plot([0, 1], [0, 1],linestyle='--')
+plt.axis('tight')
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()
+
+
+
+
+
+clf_GNB = GaussianNB()
+clf_GNB = clf_GNB.fit(x_train, y_train)
+label_pred_GNB=clf_GNB.predict(x_test)
+auc_GNB=classification_report(y_test, label_pred_GNB)
+print auc_GNB
+
+print (y_test!= label_pred_GNB).sum()
+false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, label_pred_GNB)
+roc_auc = auc(false_positive_rate, true_positive_rate)
+print roc_auc
+
+plt.figure(figsize=(10,10))
+plt.title('Receiver Operating Characteristic')
+plt.plot(false_positive_rate,true_positive_rate, color='red',label = 'AUC = %0.2f' % roc_auc)
+plt.legend(loc = 'lower right')
+plt.plot([0, 1], [0, 1],linestyle='--')
+plt.axis('tight')
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()
